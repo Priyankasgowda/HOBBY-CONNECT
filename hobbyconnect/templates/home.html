@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block nav %}
+	<a class="nav-item nav-link" href="#">Hey {{user.first_name}} {{user.last_name}}!!</a>
+{% endblock %}
+{% block body %}
+<br>
+
+	<div class="container">
+		
+		<div style="display:flex; flex-wrap:wrap">
+			
+		{% for profile in profiles %}
+			{% if profile.user != user %}
+				<div class="card" style="width: 180px; margin-left: 20px;">
+					<img src="{{profile.photo.url}}" class="card-img-top" style="height: 130px; width: 100%;">
+					<div class="card-body">
+						<h5 class="card-title">{{profile.user}}</h5>
+						<p class="card-text">Hobby: {{profile.hobby}}</p>
+						<p class="card-text">Age: {{profile.age}}</p>
+						<p class="card-text">Bio: {{profile.bio}}</p>							
+						<p class="card-text">Nationality: {{profile.nationality}}</p>
+						<p class="card-text">Locality: {{profile.locality}}</p>
+						<p class="card-text">Phno: {{profile.phno}}</p>
+						<a href="/sendmail/{{profile.id}}/" class="btn btn-primary">Send Request</a>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+	
+{% endblock %}

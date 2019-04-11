@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+ <style>
+    body
+    {
+        background-image: url(https://images.pexels.com/photos/38910/magnolia-trees-springtime-blossoms-spring-38910.jpeg?cs=srgb&dl=bloom-blossom-cherry-blossoms-38910.jpg&fm=jpg);
+      
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+</style>
+
+
+<body>
+    <div class="container">
+        <br>
+        <h2 >Sign Up 🔑</h2>
+        <br>
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
+
+
+            <h4 style="color: black;">Fullname:</h4>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Full Name" name="fullname">
+            </div> 
+
+
+             <h4 style="color: black;">Email:</h4>
+            <div class="form-group">
+                <input class="form-control" type="email" placeholder="Email" name="email">
+            </div>
+
+
+            <h4 style="color: black;">UserName:</h4>
+            <div class="form-group">
+                <input class="form-control" type="username" placeholder="Username" name="username">
+            </div>
+
+
+             <h4 style="color: black;">Set Password:</h4>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="Password" name="password">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-md btn-success" type="submit">
+
+                 <a class="btn btn-md btn-primary" href="/main/" style="background-color: #e7e7e7;color: black;margin:0 16px;">Home</a>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

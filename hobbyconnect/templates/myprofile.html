@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+</head>
+<!-- content inside navbar -->
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				
+				<a class="navbar-brand" href="#">Hobby Connect</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+
+
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav"><br>
+						<a class="nav-item nav-link" href="/home/">Back</a>
+
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav"><br>
+						<a class="nav-item nav-link" href="/main/">Logout</a>
+
+							</div>
+					<div class="navbar-nav ml-auto">
+						{% block nav %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+		</nav> <!--  end of contentens in navbar--><br><br>
+
+	
+<style>
+	body
+	{
+		background-image: url("https://wallpaperstream.com/wallpapers/full/autumn/Autumn-Red-Leaves-with-Blurred-Background.jpg");
+		color: white;
+		background-repeat: no-repeat;
+		background-size:cover;
+	}
+</style>
+<div class="container">
+		
+		<div style="display:flex; flex-wrap:wrap">
+			
+		{% for profile in profiles %}
+		<!-- logic to fetch only current user's data -->
+			{% if profile.user == user %}
+				<div class="card" style="width: 180px; margin-left: 20px;">
+					<img src="{{profile.photo.url}}" class="card-img-top" style="height: 130px; width: 100%;">
+					<div class="card-body">
+						<h5 class="card-title">{{profile.user}}</h5>
+						<p class="card-text">Hobby: {{profile.hobby}}</p>
+						<p class="card-text">Age: {{profile.age}}</p>
+						<p class="card-text">Bio: {{profile.bio}}</p>							
+						<p class="card-text">Nationality: {{profile.nationality}}</p>
+						<p class="card-text">Locality: {{profile.locality}}</p>
+						<p class="card-text">Phno: {{profile.phno}}</p>
+						<p class="card-text">email: {{profile.email}}</p>
+					</div>
+				</div>
+			{% endif %}
+			
+		{% endfor %}
+		</div>
+	</div>
+
+</body>
+
+
